@@ -203,6 +203,36 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704021426213_InitialModel.cs" />
+    <Compile Include="Migrations\201704021426213_InitialModel.Designer.cs">
+      <DependentUpon>201704021426213_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704021432399_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\201704021432399_AddIsSubscribedToCustomer.Designer.cs">
+      <DependentUpon>201704021432399_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704021437463_AddMembershipType.cs" />
+    <Compile Include="Migrations\201704021437463_AddMembershipType.Designer.cs">
+      <DependentUpon>201704021437463_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704021440534_DeleteMemberShipIdFromCustomer.cs" />
+    <Compile Include="Migrations\201704021440534_DeleteMemberShipIdFromCustomer.Designer.cs">
+      <DependentUpon>201704021440534_DeleteMemberShipIdFromCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704021441375_PopulateMembershipType.cs" />
+    <Compile Include="Migrations\201704021441375_PopulateMembershipType.Designer.cs">
+      <DependentUpon>201704021441375_PopulateMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704021447142_AddMembershipTypeIdToCustomers.cs" />
+    <Compile Include="Migrations\201704021447142_AddMembershipTypeIdToCustomers.Designer.cs">
+      <DependentUpon>201704021447142_AddMembershipTypeIdToCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704021449308_ApplyAnnotationsToCustomerName.cs" />
+    <Compile Include="Migrations\201704021449308_ApplyAnnotationsToCustomerName.Designer.cs">
+      <DependentUpon>201704021449308_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\MemberShipType.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -287,6 +317,29 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201704021426213_InitialModel.resx">
+      <DependentUpon>201704021426213_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704021432399_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>201704021432399_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704021437463_AddMembershipType.resx">
+      <DependentUpon>201704021437463_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704021440534_DeleteMemberShipIdFromCustomer.resx">
+      <DependentUpon>201704021440534_DeleteMemberShipIdFromCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704021441375_PopulateMembershipType.resx">
+      <DependentUpon>201704021441375_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704021447142_AddMembershipTypeIdToCustomers.resx">
+      <DependentUpon>201704021447142_AddMembershipTypeIdToCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704021449308_ApplyAnnotationsToCustomerName.resx">
+      <DependentUpon>201704021449308_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
