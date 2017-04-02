@@ -13,8 +13,8 @@ else {
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Discount Rates</th>
+                <th>Customer</th>
+                <th>Membership Type</th>
             </tr>
         </thead>
 
@@ -22,7 +22,7 @@ else {
             @foreach (var cust in @Model) {
                 <tr>
                     <td><a href="@Url.Action("Details", "Customers", new {id = @cust.Id})">@cust.Name</a></td>
-                    <td>@cust.MembershipType.DiscountRate%</td>
+                    <td>@cust.MembershipType.Name</td>
                 </tr>
             }
         </tbody>
