@@ -21,7 +21,9 @@ namespace Vidly.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<MembershipType> MembershipTypes { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+
+        //Membership, Genre are reference table, will be created automatically
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,67 +12,38 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        public ActionResult Details()
+        private readonly ApplicationDbContext _context;
+
+        public MoviesController()
         {
-            throw new NotImplementedException();
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+        public ActionResult Details(int id)
+        {
+            var movies = GetMovies();
+            var movie = movies.SingleOrDefault(x => x.Id == id);
+
+            if(movie == null) return HttpNotFound();
+
+            return View(movie);
         }
 
         public ActionResult Index()
         {
-            var movies = new List<Movie>()
-            {
-                new Movie() {Name = "Shrek"},
-                new Movie() {Name = "Wall-E"}
-            };
+            var movies = GetMovies();
 
             return View(movies);
         }
-//        // GET: Movie/Random
-//        public ActionResult Random()
-//        {
-//            var movie = new Movie()
-//            {
-//                Name = "Shrek"
-//            };
-//
-//            var customers = new List<Customer>()
-//            {
-////                new Customer() { Name = "Customer 1"},
-////                new Customer() { Name = "Customer 2"},
-////                new Customer() { Name = "Customer 3"},
-////                new Customer() { Name = "Customer 4"},
-////                new Customer() { Name = "Customer 5"},
-////                new Customer() { Name = "Customer 6"}
-//            };
-//
-//            var viewModel = new RandomMovieViewModel()
-//            {
-//               Movie = movie,
-//               Customers = customers
-//            };
-//
-//            return View(viewModel);
-//        }
 
-//        public ActionResult Edit(int? id)
-//        {
-//            return Content($"Id is {id ?? 0}");
-//        }
-//
-//        public ActionResult Index(int? pageIndex, string sortBy)
-//        {
-//            if (!pageIndex.HasValue) pageIndex = 1;
-//            if (string.IsNullOrEmpty(sortBy)) sortBy = "Name";
-//
-//            return Content($"Page Index is {pageIndex} and sorted by {sortBy}");
-//        }
-//
-//        [Route("movies/release/{year}/{month:regex(\\d{2})}")]
-//        public ActionResult ByReleaseDate(int year, int month)
-//        {
-//            return Content($"{year} + {month}");
-//        }
-
-       
+        private IEnumerable<Movie> GetMovies()
+        {
+            return _context.Movies.Include(x => x.Genre).ToList();
+        }
     }
 }
