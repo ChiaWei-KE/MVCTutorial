@@ -5,6 +5,19 @@ using Vidly.Models;
 using System.Data.Entity;
 using Vidly.ViewModels;
 
+//Big Picture:
+//             Action            View
+// ============================================= 
+//             Index ---------> Index
+//                Click [Create]
+//      CustomerForm ---------> CustomerForm
+//                Click [Save]
+//             Index ---------> Index
+//              Click on some record
+//         Edit/{id} ---------> CustomerForm
+//                Click [Save]
+//             Index ---------> Index
+
 namespace Vidly.Controllers
 {
     public class CustomersController : Controller
@@ -21,7 +34,7 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        public ActionResult New()
+        public ActionResult CustomerForm()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
 
